@@ -3,3 +3,10 @@ const url = "http://api.weatherstack.com/current?access_key=0741a92dc32985dd054f
 request({url:url,json:true}, (error,response)=>{
     console.log(response.body.current.weather_descriptions[0]+'. It is currently '+response.body.current.temperature+' degrees out.it feels like '+response.body.current.feelslike+' degrees out.')
 })
+//Geocoding
+const geocode="https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1IjoibmFkaXJzaGFhbGl5YXIiLCJhIjoiY2w5Nng5em5yMDJ1dDNucTg3ZW56cG9zZSJ9.qTgNxGIv7KLgNCAS1ouUXA&limit=1"
+request({url:geocode,json:true},(error,response)=>{
+    const latitude=response.body.features[0].center[1]
+    const longitude=response.body.features[0].center[0]
+    console.log(latitude,longitude)
+})
