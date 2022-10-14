@@ -1,4 +1,10 @@
 const request= require('request')
+const geocode= require('../weather-app/utils/geocode')
+
+
+
+
+
 // const url = "http://api.weatherstack.com/current?access_key=0741a92dc32985dd054f1be829b56b30&query=37.8267,-122.4233&units=f"
 // request({url:url,json:true}, (error,response)=>{
 //     if(error){
@@ -12,15 +18,20 @@ const request= require('request')
 
 
 // Geocoding
-const geocode="https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1IjoibmFkaXJzaGFhbGl5YXIiLCJhIjoiY2w5Nng5em5yMDJ1dDNucTg3ZW56cG9zZSJ9.qTgNxGIv7KLgNCAS1ouUXA&limit=1"
-request({url:geocode,json:true},(error,response)=>{
-    if(error){
-        console.log('Unable to connect to service')
-    }else if(response.body.features.length === 0){
-        console.log('Unable to find location')
-    }else{
-    const latitude=response.body.features[0].center[1]
-    const longitude=response.body.features[0].center[0]
-    console.log(latitude,longitude)
-    }
+// const geocode="https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1IjoibmFkaXJzaGFhbGl5YXIiLCJhIjoiY2w5Nng5em5yMDJ1dDNucTg3ZW56cG9zZSJ9.qTgNxGIv7KLgNCAS1ouUXA&limit=1"
+// request({url:geocode,json:true},(error,response)=>{
+//     if(error){
+//         console.log('Unable to connect to service')
+//     }else if(response.body.features.length === 0){
+//         console.log('Unable to find location')
+//     }else{
+//     const latitude=response.body.features[0].center[1]
+//     const longitude=response.body.features[0].center[0]
+//     console.log(latitude,longitude)
+//     }
+// })
+
+geocode('Kochi,India',(error,data) =>{
+    console.log('Error',error)
+    console.log('Data',data)
 })
