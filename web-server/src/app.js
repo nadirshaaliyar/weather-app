@@ -14,18 +14,27 @@ app.use(express.static(publicDir))
 
 
 
-// app.get('',(req,res)=>{
-//     res.send('<h1>Weather</h1>')
+app.get('',(req,res)=>{
+    res.render('index',{
+        title:'inside mind',
+        name:'Nadir'
+    })
 
-// })
-
-app.get('/help',(req,res)=>{
-    res.send('Help page')
 })
 
-// app.get('/about',(req,res)=>{
-//     res.send('<h1>About Page</h1>')
-// })
+app.get('/about',(req,res)=>{
+    res.render('about',{
+        title:'About me',
+        name:'Nadir'
+    })
+})
+
+app.get('/help',(req,res)=>{
+    res.render('help',{
+        title:'Help Page',
+        help_msg:'This is help message.'
+    })
+})
 
 app.get('/weather',(req,res)=>{
     res.send({
