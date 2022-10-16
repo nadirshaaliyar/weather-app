@@ -42,7 +42,7 @@ app.get('/about',(req,res)=>{
 app.get('/help',(req,res)=>{
     res.render('help',{
         title:'Help Page',
-        name:Nadir,
+        name:'Nadir',
         help_msg:'This is help message.'
     })
 })
@@ -52,6 +52,21 @@ app.get('/weather',(req,res)=>{
         forecast: 'snowing',
         location: 'Kochi'
     })
+})
+
+app.get('/help/*',(req,res)=>{
+    res.render('error',{
+        title:'More Articles',
+        error:'Help article not found!'
+    })
+})
+
+app.get('*',(req,res)=>{
+    res.render('error',{
+        title:'Error!',
+        error:'404 Page Not found'
+    })
+    
 })
 
 app.listen(3000,()=>{
