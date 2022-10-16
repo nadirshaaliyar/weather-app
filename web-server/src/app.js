@@ -57,6 +57,7 @@ app.get('/weather',(req,res)=>{
 app.get('/help/*',(req,res)=>{
     res.render('error',{
         title:'More Articles',
+        name:'Nadir',
         error:'Help article not found!'
     })
 })
@@ -64,6 +65,7 @@ app.get('/help/*',(req,res)=>{
 app.get('*',(req,res)=>{
     res.render('error',{
         title:'Error!',
+        name:'Nadir',
         error:'404 Page Not found'
     })
     
