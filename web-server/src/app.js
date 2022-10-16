@@ -8,6 +8,8 @@ const express =require('express')
 const publicDir=path.join(__dirname,'../public')
 const app =express()
 
+
+app.set('view engine','hbs')
 app.use(express.static(publicDir))
 
 
