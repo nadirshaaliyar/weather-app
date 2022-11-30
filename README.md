@@ -1,6 +1,4 @@
 # Weather App
-A simple weather app created using Nodejs.</br>
-
 > Check out weather information about a specific location!
 
 A weather app using [**Node.js**](https://nodejs.org/en/). To run this locally, make sure you have this installed.
