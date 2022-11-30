@@ -48,11 +48,11 @@ To fetch location and weather data, I used APIs that do this job.
 
 #### Geocode API
 
-To use geolocation info, such as, latitude and longitude from a specified location I used [***OpenCage Data API***](https://opencagedata.com/api#quickstart).
+To use geolocation info, such as, latitude and longitude from a specified location I used [***OpenCage Data API***](https://docs.mapbox.com/api/search/geocoding/).
 
 #### Weather API
 
-To use real time info about weather, I used [***OpenWeather Map API***](https://openweathermap.org/current).
+To use real time info about weather, I used [***OpenWeather Map API***](https://weatherstack.com/).
 
 ### Libs
 
