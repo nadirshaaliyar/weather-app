@@ -1,4 +1,7 @@
-# Weather App
+<p align="center">
+    <img src="./public/img/weather.png" height="75">
+    <h1 align="center"><b>Weather App</b></h1>
+</p>
 > Check out weather information about a specific location!
 
 A weather app using [**Node.js**](https://nodejs.org/en/). To run this locally, make sure you have this installed.
