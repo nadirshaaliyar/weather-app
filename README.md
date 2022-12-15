@@ -1,6 +1,5 @@
 <p align="center">
     <img src="https://github.com/nadirshaaliyar/weather-app/blob/main/public/img/weather.png?raw=true" height="75">
-    
     <h1 align="center"><b>Weather App</b></h1>
 </p>
 > Check out weather information about a specific location!
