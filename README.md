@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./public/img/weather.png" height="75">
+    ![icon](https://github.com/nadirshaaliyar/weather-app/blob/main/public/img/weather.png?raw=true)
     <h1 align="center"><b>Weather App</b></h1>
 </p>
 > Check out weather information about a specific location!
