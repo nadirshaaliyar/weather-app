@@ -1,0 +1,26 @@
+name: Close PR on CI failure
+
+on:
+  workflow_run:
+    workflows: ["Deno CI"]
+    types:
+      - completed
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  close-pr:
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Close pull request
+        uses: peter-evans/close-pull-request@v3
+        with:
+          comment: |
+            ❌ **Pull Request Closed Automatically**
+
+            CI checks failed (lint or tests).
+            Please fix the issues and push again — a new PR will be created automatically.
