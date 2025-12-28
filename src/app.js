@@ -8,7 +8,8 @@ const forecast=require('./utils/forecast')
 // console.log(__dirname)
 // console.log((path.join(__dirname,'../public')))
 const app=express()
-const port =process.env.PORT || 3000
+const port = Number(Deno.env.get("PORT")) || 3000;
+
 
 
 //Define paths for express config
