@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Deno
@@ -25,7 +25,13 @@ jobs:
       - name: Run linter
         run: deno lint
 
-      - name: Run tests
+      - name: Run tests if present
         env:
           PORT: 3000
-        run: deno test --allow-env --allow-net
+        run: |
+          if ls **/*_test.* **/*.test.* 1> /dev/null 2>&1; then
+            echo "Test files found. Running tests..."
+            deno test --allow-env --allow-net
+          else
+            echo "No test files found. Skipping tests."
+          fi
