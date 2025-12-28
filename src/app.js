@@ -27,7 +27,7 @@ app.use(express.static(publicDir))
 
 
 
-app.get('',(req,res)=>{
+app.get('',(_req,res)=>{
     res.render('index',{
         title:'Weather App',
         name:'Nadir'
@@ -35,14 +35,14 @@ app.get('',(req,res)=>{
 
 })
 
-app.get('/about',(req,res)=>{
+app.get('/about',(_req,res)=>{
     res.render('about',{
         title:'About me',
         name:'Nadir'
     })
 })
 
-app.get('/help',(req,res)=>{
+app.get('/help',(_req,res)=>{
     res.render('help',{
         title:'Help Page',
         name:'Nadir',
@@ -50,13 +50,13 @@ app.get('/help',(req,res)=>{
     })
 })
 
-app.get('/weather',(req,res)=>{
-    if(!req.query.address){
+app.get('/weather',(_req,res)=>{
+    if(!_req.query.address){
         return res.send({
             error:'You must provide an address!'
         })
     }else{
-        geocode(req.query.address,(error,{latitude,longitude,location}={}) =>{
+        geocode(_req.query.address,(error,{latitude,longitude,location}={}) =>{
             if(error){
                 return res.send({error})
             }
@@ -67,7 +67,7 @@ app.get('/weather',(req,res)=>{
                 res.send({
                     forecast:forecastdata,
                     location,
-                    address:req.query.address
+                    address:_req.query.address
                 })
                 console.log( location)
                 console.log(forecastdata)
@@ -77,7 +77,7 @@ app.get('/weather',(req,res)=>{
 })
 
 
-app.get('/help/*',(req,res)=>{
+app.get('/help/*',(_req,res)=>{
     res.render('error',{
         title:'More Articles',
         name:'Nadir',
@@ -85,7 +85,7 @@ app.get('/help/*',(req,res)=>{
     })
 })
 
-app.get('*',(req,res)=>{
+app.get('*',(_req,res)=>{
     res.render('error',{
         title:'Error!',
         name:'Nadir',
