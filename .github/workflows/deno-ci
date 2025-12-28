@@ -1,0 +1,32 @@
+name: Deno CI
+
+on:
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: Run linter
+        run: deno lint
+
+      - name: Run tests if present
+        env:
+          PORT: 3000
+        run: |
+          if ls **/*_test.* **/*.test.* 1> /dev/null 2>&1; then
+            deno test --allow-env --allow-net
+          else
+            echo "No tests found. Skipping tests."
+          fi
